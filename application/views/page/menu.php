@@ -4,7 +4,7 @@
     <li><a href="#">SYARAT & PROSEDUR</a></li>
     <li><a href="<?= base_url() ?>homepage/contact">CONTACT</a></li>
     <?php
-      if (is_null($this->session->userdata('id_user'))) {
+      if (is_null($this->session->userdata('userDetail'))) {
     ?>
     <li><a href="<?= base_url() ?>homepage/login">LOGIN</a></li>
     <?php
@@ -12,12 +12,9 @@
       else{
      ?>
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php $user = $this->session->userdata('userDetail'); echo $user['nama'];?><b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><a href="blog.html">BLOG</a></li>
-        <li><a href="single-post.html">SINGLE POST</a></li>
-        <li><a href="portfolio.html">PORTFOLIO</a></li>
-        <li><a href="single-project.html">SINGLE PROJECT</a></li>
+        <li><a href="<?= base_url() ?>homepage/logout">Logout</a></li>
       </ul>
     </li>
     <?php
