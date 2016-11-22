@@ -1,6 +1,6 @@
 <div class="navbar-collapse collapse navbar-right">
   <ul class="nav navbar-nav">
-    <li class="active"><a href="#">HOME</a></li>
+    <li class="active"><a href="<?= base_url() ?>">HOME</a></li>
     <li><a href="#">SYARAT & PROSEDUR</a></li>
     <li><a href="<?= base_url() ?>homepage/contact">CONTACT</a></li>
     <?php

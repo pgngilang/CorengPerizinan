@@ -43,10 +43,16 @@ class Homepage extends CI_Controller {
     }
 
     public function form_perseorangan(){
+      if($this->session->userdata('userDetail') == null)
+        redirect(base_url().'Homepage/login');
+      else
         $this->load->view('form_perseorangan',$this->data);
     }
 
     public function form_badan(){
+      if($this->session->userdata('userDetail') == null)
+        redirect(base_url().'Homepage/login');
+      else
         $this->load->view('form_badanusaha',$this->data);
     }
 

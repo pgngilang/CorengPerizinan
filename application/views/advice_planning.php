@@ -1,8 +1,11 @@
 <?php
 	$this->load->view('page/header');
 	$this->load->view('page/menu');
+	$pesan = $this->session->flashdata('message');
+	if(isset($pesan)) {
+		echo "<script>alert('Data berhasil di tambahkan!');</script>";
+	}
 ?>
-
     <div id="twrap">
         <div class="container">
             <div class="row">
@@ -36,14 +39,14 @@
                     <h4 style="color:#00b3fe;">Form AP Perseorangan</h4>
                     <p>Pertimbangan Teknis Perencanaan untuk setiap orang pribadi mengajukan Ijin Pemanfaatan Ruang dengan luas lahan minimal 500 (lima ratus) meter persegi.</p>
                     <p><br/>
-                    <a href="<?= base_url()?>homepage/form_perseorangan" class="btn btn-theme">Ajukan Form</a></p>
+                    <a href="<?= base_url()?>Permohonan/FormPerseorangan" class="btn btn-theme">Ajukan Form</a></p>
                 </div>
                 <div class="col-md-4">
                     <i class="fa fa-university" aria-hidden="true"></i>
                     <h4 style="color:#00b3fe;">Form AP Badan Usaha</h4>
                     <p>Pertimbangan Teknis Perencanaan untuk Badan Usaha yang akan mengajukan Ijin Pemanfaatan Ruang dengan luas lahan minimal 500 (lima ratus) meter persegi.</p>
                     <p><br/>
-                    <a href="<?= base_url()?>homepage/form_badan" class="btn btn-theme">Ajukan Form</a></p>
+                    <a href="<?= base_url()?>Permohonan/FormBadanUsaha" class="btn btn-theme">Ajukan Form</a></p>
                 </div>
             </div>
         </div><! --/container -->
