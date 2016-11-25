@@ -112,16 +112,16 @@
             			<div style="text-align:center">
             				<h3>UPLOAD LAMPIRAN</h3>
             			</div>
-            			<div class="form-group" >
-	            			<label for="name">Upload File</label><br>
-	            			<input readonly="readonly" type="file" class="filestyle" data-input="false">
-            			</div>
-            			<div class="panel panel-primary">
-						  <div class="panel-body" style="color:black;min-height: 10; max-height: 10;">
-						  			1. test.png <i class="fa fa-times" style="color:red"></i><br>
-						  			2. ktp.png <i class="fa fa-times" style="color:red"></i><br>
-						  </div>
-						</div>
+									<div class="panel panel-primary">
+									  <div class="panel-body" style="color:black;min-height: 10; max-height: 10;">
+											<?php
+												$i = 1;
+												foreach($file as $f) {
+											 ?>
+									  			<a href="<?php echo base_url().$f->direktori; ?>" target="_blank"><?php echo $i.". ".$f->nama; ?> <i class="fa fa-search-plus" style="color:red"></i></a><br>
+												<?php $i++; } ?>
+									  </div>
+									</div>
             		</div>
             	</div>
             	<div class="col-md-6" style="text-align:left">

@@ -36,6 +36,13 @@ Class PermohonanModel extends CI_Model{
       }
     }
 
+    public function TambahDokumen($idPermohonan, $nama, $direktori, $status)
+    {
+      $sql = "insert into dokumen_perizinan(id_permohonan, nama, waktu_upload, direktori, status)
+            values('$idPermohonan', '$nama', now(), '$direktori', '$status')";
+      $query = $this->db->query($sql);
+    }
+
     public function ListPermohonan($status)
     {
       $sql = "SELECT *,
@@ -96,6 +103,13 @@ Class PermohonanModel extends CI_Model{
               LEFT JOIN user
               ON user.id_user=permohonan.id_user
               where permohonan.id_user = $id";
+      $query = $this->db->query($sql);
+      return $query->result();
+    }
+
+    public function ListFile($id)
+    {
+      $sql = "select * from dokumen_perizinan where id_permohonan = $id";
       $query = $this->db->query($sql);
       return $query->result();
     }
