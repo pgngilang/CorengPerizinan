@@ -22,12 +22,82 @@ Class PermohonanModel extends CI_Model{
               penggunaan_sekarang, rencana_pembangunan, rencana_perluasan) values($idPermohonan,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
       $query2 = $this->db->query($sql2, $dataTanah);
 
-      if ($query && $query2) {
-        return true;
+      $sql3 = "insert into log_perizinan(id_permohonan, waktu, status) values($idPermohonan, now(), 1)";
+      $query3 = $this->db->query($sql3);
+
+      if ($query && $query2 && $query3) {
+        $ret = array('status' => true,
+                    'id' => $idPermohonan );
+        return $ret;
       }
       else {
-        return false;
+        $ret = array('status' => false);
+        return $ret;
       }
+    }
+
+    public function ListPermohonan($status)
+    {
+      $sql = "SELECT *,
+              	COALESCE(jenis_permohonan.nama_jenis, permohonan.jenis_permohonan) AS jenis,
+              	COALESCE(status_permohonan.nama_status, permohonan.status_permohonan) AS status,
+                COALESCE(user.nama, permohonan.id_user) AS nama_pemohon
+              FROM permohonan
+              LEFT JOIN jenis_permohonan
+              ON jenis_permohonan.id_jenis=permohonan.jenis_permohonan
+              LEFT JOIN status_permohonan
+              ON status_permohonan.id_status=permohonan.status_permohonan
+              LEFT JOIN user
+              ON user.id_user=permohonan.id_user";
+      if($status == "daftar")
+        $sql = $sql." where status_permohonan = 1";
+      elseif ($status == "proses")
+        $sql = $sql . " where status_permohonan = 2 or status_permohonan = 3";
+      elseif($status == "selesai")
+      $sql = $sql . " where status_permohonan = 4 or status_permohonan = 5 or status_permohonan = 6";
+
+      $query = $this->db->query($sql);
+      return $query->result();
+    }
+
+    public function DetailPermohonan($id)
+    {
+      $sql = "SELECT *,
+              	COALESCE(jenis_permohonan.nama_jenis, permohonan.jenis_permohonan) AS jenis,
+              	COALESCE(status_permohonan.nama_status, permohonan.status_permohonan) AS STATUS
+              FROM detail_tanah, permohonan, USER, status_permohonan, jenis_permohonan
+              WHERE permohonan.id_permohonan = detail_tanah.id_permohonan
+              AND permohonan.id_user = user.id_user
+              AND status_permohonan.id_status = permohonan.status_permohonan
+              AND jenis_permohonan.id_jenis = permohonan.jenis_permohonan
+              AND permohonan.id_permohonan = $id
+              ";
+      $query = $this->db->query($sql);
+      return $query->result();
+    }
+
+    public function GantiStatus($id, $status)
+    {
+      $sql = "update permohonan set status_permohonan = $status where id_permohonan = $id";
+      $query = $this->db->query($sql);
+    }
+
+    public function ListPermohonanUser($id)
+    {
+      $sql = "SELECT *,
+              	COALESCE(jenis_permohonan.nama_jenis, permohonan.jenis_permohonan) AS jenis,
+              	COALESCE(status_permohonan.nama_status, permohonan.status_permohonan) AS status,
+                COALESCE(user.nama, permohonan.id_user) AS nama_pemohon
+              FROM permohonan
+              LEFT JOIN jenis_permohonan
+              ON jenis_permohonan.id_jenis=permohonan.jenis_permohonan
+              LEFT JOIN status_permohonan
+              ON status_permohonan.id_status=permohonan.status_permohonan
+              LEFT JOIN user
+              ON user.id_user=permohonan.id_user
+              where permohonan.id_user = $id";
+      $query = $this->db->query($sql);
+      return $query->result();
     }
 
 	/*

@@ -16,8 +16,10 @@
     <!-- Custom styles for this template -->
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/css/jquery.filer.css" type="text/css" rel="stylesheet" />
+    <link href="<?php echo base_url() ?>assets/css/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/jquery.realperson.css"> 
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/jquery.realperson.css">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -27,7 +29,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     <script src="<?= base_url() ?>assets/js/modernizr.js"></script>
   </head>
 
@@ -45,4 +47,3 @@
           </button>
           <a class="navbar-brand" href="<?= base_url() ?>homepage">AP Banyuwangi</a>
         </div>
-        

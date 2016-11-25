@@ -14,6 +14,11 @@
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php $user = $this->session->userdata('userDetail'); echo $user['nama'];?><b class="caret"></b></a>
       <ul class="dropdown-menu">
+        <?php if ($user['role'] == 1) { ?>
+          <li><a href="<?= base_url() ?>Admin/">Halaman Admin</a></li>
+        <?php } elseif ($user['role'] == 2) { ?>
+          <li><a href="<?= base_url() ?>Permohonan/DataPengajuanUser">Riwayat Permohonan</a></li>
+        <?php } ?>
         <li><a href="<?= base_url() ?>homepage/logout">Logout</a></li>
       </ul>
     </li>

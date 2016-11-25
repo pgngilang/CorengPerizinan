@@ -30,6 +30,20 @@ Class UserModel extends CI_Model{
         return $user;
     }
 
+    public function TambahUser($data, $jenis)
+    {
+      $sql = "insert into user(email, pass, nama, alamat, no_telp, status_aktif, tanggal_daftar, role)
+            values(?,?,?,?,?,1,now(),$jenis)";
+      $query = $this->db->query($sql, $data);
+
+      if ($query) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
 	/*
 	--untuk hasilkan query
 	public function nama_fungsi($parameter1, $parameter2)

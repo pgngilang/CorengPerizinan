@@ -28,7 +28,7 @@
 		 				Banyuwangi<br/>
 		 			</p>
 		 		</div>
-		 	
+
 		 	</div><! --/row -->
 	 	</div><! --/container -->
 	 </div><! --/footerwrap -->
@@ -36,16 +36,27 @@
 	 <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-   
+
     <script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
 	<script src="<?= base_url() ?>assets/js/retina-1.1.0.js"></script>
 	<script src="<?= base_url() ?>assets/js/jquery.hoverdir.js"></script>
+	<script src="<?= base_url() ?>assets/js/jquery.filer.js"></script>
+	<script src="<?= base_url() ?>assets/js/jquery.filer.min.js"></script>
 	<script src="<?= base_url() ?>assets/js/jquery.hoverex.min.js"></script>
 	<script src="<?= base_url() ?>assets/js/jquery.prettyPhoto.js"></script>
   	<script src="<?= base_url() ?>assets/js/jquery.isotope.min.js"></script>
   	<script src="<?= base_url() ?>assets/js/custom.js"></script>
   	<script src="<?= base_url() ?>assets/js/bootstrap-filestyle.min.js"></script>
 
+<script>
+$(document).ready(function() {
+	 $('#filer_input').filer({
+		showThumbs: true,
+		addMore: true,
+		allowDuplicates: false
+});
+});
+</script>
 
     <script>
 // Portfolio
@@ -54,11 +65,11 @@
 	var $container = $('.portfolio'),
 		$items = $container.find('.portfolio-item'),
 		portfolioLayout = 'fitRows';
-		
+
 		if( $container.hasClass('portfolio-centered') ) {
 			portfolioLayout = 'masonry';
 		}
-				
+
 		$container.isotope({
 			filter: '*',
 			animationEngine: 'best-available',
@@ -71,12 +82,12 @@
 		masonry: {
 		}
 		}, refreshWaypoints());
-		
+
 		function refreshWaypoints() {
 			setTimeout(function() {
-			}, 1000);   
+			}, 1000);
 		}
-				
+
 		$('nav.portfolio-filter ul a').on('click', function() {
 				var selector = $(this).attr('data-filter');
 				$container.isotope({ filter: selector }, refreshWaypoints());
@@ -84,11 +95,11 @@
 				$(this).addClass('active');
 				return false;
 		});
-		
-		function getColumnNumber() { 
-			var winWidth = $(window).width(), 
+
+		function getColumnNumber() {
+			var winWidth = $(window).width(),
 			columnNumber = 1;
-		
+
 			if (winWidth > 1200) {
 				columnNumber = 5;
 			} else if (winWidth > 950) {
@@ -101,31 +112,31 @@
 				columnNumber = 1;
 			}
 				return columnNumber;
-			}       
-			
+			}
+
 			function setColumns() {
-				var winWidth = $(window).width(), 
-				columnNumber = getColumnNumber(), 
+				var winWidth = $(window).width(),
+				columnNumber = getColumnNumber(),
 				itemWidth = Math.floor(winWidth / columnNumber);
-				
-				$container.find('.portfolio-item').each(function() { 
-					$(this).css( { 
-					width : itemWidth + 'px' 
+
+				$container.find('.portfolio-item').each(function() {
+					$(this).css( {
+					width : itemWidth + 'px'
 				});
 			});
 		}
-		
-		function setPortfolio() { 
+
+		function setPortfolio() {
 			setColumns();
 			$container.isotope('reLayout');
 		}
-			
-		$container.imagesLoaded(function () { 
+
+		$container.imagesLoaded(function () {
 			setPortfolio();
 		});
-		
-		$(window).on('resize', function () { 
-		setPortfolio();          
+
+		$(window).on('resize', function () {
+		setPortfolio();
 	});
 })(jQuery);
 </script>

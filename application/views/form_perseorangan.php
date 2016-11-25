@@ -82,14 +82,9 @@
             			</div>
             			<div class="form-group" >
 	            			<label for="name">Upload File</label><br>
-	            			<input type="file" class="filestyle" data-input="false">
+	            			<input type="file" name="files[]" id="filer_input" multiple="multiple">
             			</div>
-            			<div class="panel panel-primary">
-						  <div class="panel-body" style="color:black;min-height: 10; max-height: 10;">
-						  			1. test.png <i class="fa fa-times" style="color:red"></i><br>
-						  			2. ktp.png <i class="fa fa-times" style="color:red"></i><br>
-						  </div>
-						</div>
+
 						<div class="form-group" >
 	            			<input type="text" class="form-control" id="defaultReal" name="defaultReal">
             			</div>
