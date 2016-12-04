@@ -28,8 +28,8 @@
 
             <!-- Dropdown menu -->
             <ul class="dropdown-menu">
-              <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-              <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li>
+              <!-- <li><a href="#"><i class="fa fa-user"></i> Profile</a></li> -->
+              <!-- <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li> -->
               <li><a href="<?php echo base_url(); ?>Homepage/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
           </li>
@@ -83,12 +83,16 @@
             </ul>-->
           </li>
           <li class="has_sub">
-			<a href="#"><i class="fa fa-list-alt"></i>Permohonan  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+			         <a href="#"><i class="fa fa-list-alt"></i>Permohonan  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
             <ul>
               <li><a href="<?php echo base_url() ?>Admin/DataPengajuan/daftar">Permohonan Baru</a></li>
               <li><a href="<?php echo base_url() ?>Admin/DataPengajuan/proses">Permohonan Proses</a></li>
               <li><a href="<?php echo base_url() ?>Admin/DataPengajuan/selesai">Permohonan Selesai</a></li>
             </ul>
+          </li>
+          <li><a href="<?php echo base_url() ?>admin/ListUser"><i class="fa fa-home"></i> Pengguna</a>
+          <li><a href="<?php echo base_url() ?>admin/ListAdmin"><i class="fa fa-home"></i> Administrator</a>
+
         </ul>
     </div>
 

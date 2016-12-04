@@ -19,6 +19,7 @@
         <?php } elseif ($user['role'] == 2) { ?>
           <li><a href="<?= base_url() ?>Permohonan/DataPengajuanUser">Riwayat Permohonan</a></li>
         <?php } ?>
+        <!-- <li><a href="<?= base_url() ?>homepage/logout">Profile</a></li> -->
         <li><a href="<?= base_url() ?>homepage/logout">Logout</a></li>
       </ul>
     </li>

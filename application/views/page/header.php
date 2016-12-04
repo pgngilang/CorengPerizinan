@@ -12,9 +12,11 @@
 
     <!-- Bootstrap core CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBxCYsu5Q9asrVduR7-vhzfIBgHR334SaY&sensor=false"></script>
     <link href="<?= base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/css/jquery-gmaps-latlon-picker.css" rel="stylesheet">
     <link href="<?= base_url() ?>assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/css/jquery.filer.css" type="text/css" rel="stylesheet" />
     <link href="<?php echo base_url() ?>assets/css/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet" />
@@ -31,6 +33,7 @@
     <![endif]-->
 
     <script src="<?= base_url() ?>assets/js/modernizr.js"></script>
+
   </head>
 
   <body>

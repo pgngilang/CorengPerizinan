@@ -34,6 +34,18 @@ class Admin extends CI_Controller {
       $this->load->view('home/Register');
     }
 
+    public function ListUser(){
+      $this->load->model('UserModel');
+      $data['pengguna'] = $this->UserModel->ListUser(2);
+      $this->load->view('admin/list_user', $data);
+    }
+
+    public function ListAdmin(){
+      $this->load->model('UserModel');
+      $data['pengguna'] = $this->UserModel->ListUser(1);
+      $this->load->view('admin/list_admin', $data);
+    }
+
     public function logout(){
       $this->session->unset_userdata('userDetail');
       redirect(base_url().'Homepage/login');
@@ -68,9 +80,15 @@ class Admin extends CI_Controller {
       $data['nama'] = $this->input->post('nama');
       $data['alamat'] = $this->input->post('alamat');
       $data['noTelp'] = $this->input->post('noTelp');
+      $role = $this->input->post('role');
+      if (is_null($this->input->post('role'))) {
+        $role = 2;
+      }
+
+      //echo $role;
       //echo "$username - $password";
       $this->load->model('UserModel');
-      $statusDaftar = $this->UserModel->TambahUser($data, 2);
+      $statusDaftar = $this->UserModel->TambahUser($data, $role);
       $data = $this->UserModel->GetUser($data['email'], $pass);
       if ($data == null) {
         redirect(base_url().'Homepage/Register');
@@ -78,7 +96,7 @@ class Admin extends CI_Controller {
       else {
         if ($data['role'] == 1) {
           $this->session->set_userdata('userDetail', $data);
-          redirect(base_url().'Homepage/Register');
+          redirect(base_url().'Admin');
         }
         elseif ($data[role] == 2) {
           $this->session->set_userdata('userDetail', $data);

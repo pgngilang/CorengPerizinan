@@ -47,6 +47,15 @@
   	<script src="<?= base_url() ?>assets/js/jquery.isotope.min.js"></script>
   	<script src="<?= base_url() ?>assets/js/custom.js"></script>
   	<script src="<?= base_url() ?>assets/js/bootstrap-filestyle.min.js"></script>
+    <!-- <script src="<?= base_url() ?>assets/js/jquery-2.1.1.min.js"></script> -->
+    <script src="<?= base_url() ?>assets/js/jquery-gmaps-latlon-picker.js"></script>
+		<script type="text/javascript" src="<?= base_url() ?>assets/js/jquery.plugin.js"></script>
+		<script type="text/javascript" src="<?= base_url() ?>assets/js/jquery.realperson.js"></script>
+		<script type="text/javascript">
+		$(function() {
+			$('#defaultReal').realperson();
+		});
+		</script>
 
 <script>
 $(document).ready(function() {

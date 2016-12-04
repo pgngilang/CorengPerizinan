@@ -9,7 +9,7 @@ Class UserModel extends CI_Model{
 
     public function GetUser($username, $password)
     {
-        $query = $this->db->query("select * from user where email = '$username' and pass = md5('$password')");
+        $query = $this->db->query("select * from pengguna where email = '$username' and pass = md5('$password')");
         $data = $query->row();
         if (!isset($data)) {
           return NULL;
@@ -32,7 +32,7 @@ Class UserModel extends CI_Model{
 
     public function TambahUser($data, $jenis)
     {
-      $sql = "insert into user(email, pass, nama, alamat, no_telp, status_aktif, tanggal_daftar, role)
+      $sql = "insert into pengguna(email, pass, nama, alamat, no_telp, status_aktif, tanggal_daftar, role)
             values(?,?,?,?,?,1,now(),$jenis)";
       $query = $this->db->query($sql, $data);
 
@@ -42,6 +42,11 @@ Class UserModel extends CI_Model{
       else {
         return false;
       }
+    }
+
+    public function ListUser($role)
+    {
+      return $this->db->query("select * from pengguna where role = '$role'")->result();
     }
 
 	/*
